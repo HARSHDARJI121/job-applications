@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #navbar{
+         display: flex;
+         justify-content: space-around;
+         background-color: teal;
+         cursor: pointer;
+         color: aliceblue;
+        }
+         #navtext h1 a{
+         color: white;
+        }
+        #navtext h1 a:hover{
+         color: rgb(0, 0, 0);
+        }
+        #box{
+            height: 60px;
+            width: 27%;
+            border: px solid;
+            margin: auto;
+            margin-top: 100px;
+        }
+        table th{
+            border: 1px solid;
+            font-size: xx-large;
+            padding: 10px;
+            background-color: teal;
+            color: aliceblue;
+        }
+        table td{
+            border: 1px solid;
+            font-size: x-large;
+            padding: 10px;
+            
+        }
+       
+         
+     </style>
+ </head>
+ <body>
+     <div id="navbar">
+         <div id="navtext">
+             <h1><a href="home.html">HOME</a></h1>
+         </div>
+         <div id="navtext">
+             <h1><a href="applied.html">APPLIED JOBS</a></h1>
+         </div>
+         <div id="navtext">
+             <h1><a href="book.html">BOOKMARK</a></h1>
+         </div>
+     </div>
+     <div>
+        <div id="box">
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Job Applied</th>
+                </tr>
+                </thead>
+    
+                <tbody>
+                    
+                </tbody>
+            </table> 
+        </div>
+     </div>
+    
+</body>
+</html>
+<script>
+    var bookedlist=JSON.parse(localStorage.getItem("booked"))
+    console.log(bookedlist)
+
+    bookedlist.map(function(elem,index){
+        var tr=document.createElement("tr")
+
+        var td1=document.createElement("td")
+        td1.innerText=elem.name
+
+        var td2=document.createElement("td")
+        td2.innerText=elem.email
+
+        var td3=document.createElement("td")
+        td3.innerText=elem.job
+
+        tr.append(td1,td2,td3)
+
+        document.querySelector("tbody").append(tr)
+    })
+
+</script>
